@@ -1,1 +1,12 @@
 /* You can add global styles to this file, and also import other style files */
+@import '~normalize.css';
+
+html {
+    height: 100%;
+    position: relative;
+}
+
+body {
+    background-color: #E5E8ED;
+    min-height: 100%;
+}

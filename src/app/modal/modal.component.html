@@ -1,0 +1,23 @@
+<div class="modal-backdrop" *ngIf="this.modalState" (click)="closeModalByBackDrop($event)">
+    <div class="modal">
+        <div class="modal__header"></div>
+        <form [formGroup]="modalFormGroup" (ngSubmit)="addEntityToTable()">
+            <div class="modal__body">
+                <input type="text" id="name" placeholder="Name" formControlName="name" autocomplete="off">
+                <input type="text" placeholder="Surname" formControlName="surname" autocomplete="off">
+                <input type="text" placeholder="Age" formControlName="age" autocomplete="off">
+                <div class="select__city" (click)="openSelectCityDropdown()" [ngClass]="{'opened': openedOptions, 'closed': !openedOptions}">
+                    <input class="select__city--input" type="text" readonly placeholder="City" formControlName="city" autocomplete="off">
+                    <div class="select__city--options" >
+                        <div class="select__city--options-item" (click)="selectCityFromDropdown(city)" *ngFor="let city of cities">
+                            {{city}}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal__footer">
+                <button type="submit" [disabled]="!modalFormGroup.valid">ADD</button>
+            </div>
+        </form>
+    </div>
+</div>

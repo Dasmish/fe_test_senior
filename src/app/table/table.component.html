@@ -1,0 +1,35 @@
+<div *ngFor="let table of tables; let first = first; let index = index">
+    <div class="table__operation_buttons">
+        <div class="modal__button">
+            <button class="table__operation_buttons--copy" *ngIf="first" (click)="openModal()">Add info to table</button>
+        </div>
+        <div class="table__button">
+            <button class="table__operation_buttons--copy" (click)="copyTable()">copy table</button>
+            <a class="table__operation_buttons--delete" (click)="deleteTable(index)" *ngIf="!first">X</a>
+        </div>
+    </div>
+    <div class="table">
+        <div class="table__header">
+            <div class="table__header--name">Name</div>
+            <div class="table__header--name">Surname</div>
+            <div class="table__header--name">Age</div>
+            <div class="table__header--name">City</div>
+            <div class="table__header--name"></div>
+        </div>
+        <div class="table__body">
+            <div class="table__body--component" *ngFor="let singeCell of tableRow; let cellIndex = index">
+                <div class="table__body--cell">{{singeCell.name}}</div>
+                <div class="table__body--cell">{{singeCell.surname}}</div>
+                <div class="table__body--cell">{{singeCell.age}}</div>
+                <div class="table__body--cell">{{singeCell.city}}</div>
+                <div class="table__body--cell additional_buttons">
+                    <a class="edit_row" (click)="editTableRow(singeCell)">Edit</a>
+                    <a class="delete_row" (click)="deleteTableRow(cellIndex)">Delete</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<app-modal [(modalState)]="modalDisplay" (tableRowEmmiter)="recieveTableCellInfo($event)"></app-modal>

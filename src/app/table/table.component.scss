@@ -1,0 +1,96 @@
+.table__operation_buttons {
+    display: flex;
+    margin: 10px 10px 5px 10px;
+    & .modal__button, & .table__button {
+        width: 50%;
+    }
+    & .modal__button {
+        padding-right: 5px;
+    }
+    & .table__button {
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+    }
+
+    &--copy {
+        transition: all 0.3s;
+        padding: 5px 16px;
+        background-color: #1193FF;
+        color: #fff;
+        border: none;
+        border-radius: 2px;
+        &:hover {
+            cursor: pointer;
+            background-color: #0e75ca;
+        }
+    }
+    &--delete {
+        margin-left: 25px;
+        font-size: 20px;
+        transition: all 0.2s;
+
+        &:hover {
+            cursor: pointer;
+            color: red;
+        }
+    }
+}
+
+.table {
+    margin: 10px 10px 5px 10px;
+
+    &__header {
+        background-color: #0A508B;
+        border-top-left-radius: 5px;
+        border-top-right-radius: 5px;
+        display: flex;
+    
+        &--name {
+            color: #fff;
+            opacity: 0.5;
+            width: 25%;
+            padding-left: 12px;
+        }
+    }
+
+    &__body {
+
+        &--component {
+            display: flex;
+            background-color: #fff;
+        }
+        
+        &--cell {
+            width: 25%;
+            padding: 9px 9px 9px 12px;
+
+            border-right-color: #EBEBEB;
+            border-right-width: 1px;
+            border-right-style: solid;
+
+            border-bottom-color: #EBEBEB;
+            border-bottom-width: 1px;
+            border-bottom-style: solid;
+
+            word-break: break-all;
+        }
+
+        &--cell.additional_buttons a{
+            cursor: pointer;
+            text-decoration: underline;
+            
+        }
+
+        &--cell.additional_buttons {
+            display: flex;
+            justify-content: space-around;
+            & .edit_row {
+                color: #057AE3;
+            }
+            & .delete_row {
+                color: red;
+            }
+        }
+    }
+}
